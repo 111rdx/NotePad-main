@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <application android:allowBackup="true" android:icon="@drawable/app_notes"
+        android:label="@string/app_name" android:theme="@style/AppTheme">
+        <activity android:name=".NotesList" android:exported="true" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".NoteEditor" android:exported="true" android:windowSoftInputMode="adjustResize">
+            <!-- VIEW handles note MIME data, not web links. -->
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/vnd.example.android.notepad" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.INSERT" />
+                <action android:name="android.intent.action.PASTE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.dir/vnd.example.android.notepad" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".TitleEditor" android:exported="true"
+            android:label="@string/resolve_title" android:theme="@style/TitleDialogTheme">
+            <intent-filter android:label="@string/resolve_title">
+                <action android:name="com.android.notepad.action.EDIT_TITLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.ALTERNATIVE" />
+                <data android:mimeType="vnd.android.cursor.item/vnd.example.android.notepad" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".NotesLiveFolder" android:exported="true" android:label="@string/live_folder_name">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_LIVE_FOLDER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <provider android:name=".NotePadProvider" android:authorities="com.google.provider.NotePad"
+            android:exported="false">
+            <!-- Clipboard access is limited to the selected single-note URI. -->
+            <grant-uri-permission android:pathPrefix="/notes/" />
+        </provider>
+    </application>
+</manifest>
+
+
+

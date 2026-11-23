@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ink">#203C39</color>
+    <color name="muted">#667B76</color>
+    <color name="accent">#277969</color>
+    <color name="paper">#F5F7F2</color>
+    <style name="AppTheme" parent="android:style/Theme.Material.Light">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:colorPrimary">@color/accent</item>
+        <item name="android:colorPrimaryDark">#1C584C</item>
+        <item name="android:statusBarColor">#1C584C</item>
+        <item name="android:navigationBarColor">#1C584C</item>
+        <item name="android:windowBackground">@color/paper</item>
+        <item name="android:textColorPrimary">@color/ink</item>
+        <item name="android:textColorSecondary">@color/muted</item>
+        
+        <item name="android:actionBarTheme">@android:style/ThemeOverlay.Material.Dark.ActionBar</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
+    <style name="TitleDialogTheme" parent="AppTheme">
+        <item name="android:windowIsFloating">true</item>
+    </style>
+</resources>
+

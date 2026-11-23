@@ -1,0 +1,8 @@
+
+com.example.android.notepad.ExperimentTest:.......
+Test results for InstrumentationTestRunner=.......
+Time: 49.374
+
+OK (7 tests)
+
+
